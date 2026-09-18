@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS site_content (
+  id TEXT PRIMARY KEY,
+  content JSONB NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#171814" />
+    <title>内容后台登录｜塔塔爸爸.ai</title>
+    <link rel="stylesheet" href="/styles/admin.css" />
+  </head>
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="login-brand">
+        <a href="/" class="admin-brand">
+          <span class="admin-avatar"><img src="/assets/wechat-official-qr.jpg" alt="" /></span>
+          <span>塔塔爸爸.ai</span>
+        </a>
+        <div>
+          <p>PRIVATE CONTENT STUDIO</p>
+          <h1>把长期思考，<br />整理成可以被看见的内容。</h1>
+        </div>
+        <small>仅供站点所有者使用</small>
+      </section>
+
+      <section class="login-panel" aria-labelledby="login-title">
+        <div>
+          <p>ADMIN / SIGN IN</p>
+          <h2 id="login-title">欢迎回来</h2>
+          <span>登录后可以维护首页文案、三个专题、作品和外部链接。</span>
+        </div>
+
+        <% if (!authConfigured) { %>
+          <div class="admin-alert is-error">
+            生产环境尚未配置管理员账号。请先设置 `ADMIN_USERNAME`、`ADMIN_PASSWORD_HASH` 和 `AUTH_SECRET`。
+          </div>
+        <% } %>
+
+        <% if (error) { %>
+          <div class="admin-alert is-error" role="alert">用户名或密码不正确。</div>
+        <% } %>
+
+        <% if (localCredentials) { %>
+          <div class="admin-alert">
+            本地开发账号：<strong>admin</strong> / <strong>tatababa-local</strong>
+          </div>
+        <% } %>
+
+        <form class="login-form" method="post" action="/admin/login">
+          <label>
+            <span>用户名</span>
+            <input name="username" type="text" autocomplete="username" required autofocus />
+          </label>
+          <label>
+            <span>密码</span>
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit" <%= authConfigured ? "" : "disabled" %>>进入内容后台 <span aria-hidden="true">→</span></button>
+        </form>
+        <a class="back-link" href="/">← 返回公开主页</a>
+      </section>
+    </main>
+  </body>
+</html>

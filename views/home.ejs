@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="<%= pageDescription %>" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= pageTitle %>" />
+    <meta property="og:description" content="<%= pageDescription %>" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:image" content="<%= socialImageUrl %>" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="塔塔爸爸.ai：在 AI 时代，认真做一个人。" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= pageTitle %>" />
+    <meta name="twitter:description" content="<%= pageDescription %>" />
+    <meta name="twitter:image" content="<%= socialImageUrl %>" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/site.css" />
+    <script src="/scripts/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="塔塔爸爸.ai 首页">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="/assets/wechat-official-qr.jpg" alt="" />
+        </span>
+        <span><%= content.profile.brand %></span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#about">关于我</a>
+        <% content.topics.forEach(function(topic) { %>
+          <a href="#<%= topic.id %>"><%= topic.shortTitle %></a>
+        <% }) %>
+      </nav>
+      <a class="header-cta" href="#topics">开始阅读 <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span><%= content.profile.eyebrow %></p>
+          <h1 id="hero-title">
+            <%= content.profile.headline %><br />
+            <em><%= content.profile.headlineAccent %></em>
+          </h1>
+          <p class="hero-intro"><%= content.profile.intro %></p>
+          <div class="identity-tags" aria-label="身份标签">
+            <% content.profile.identityTags.forEach(function(tag) { %>
+              <span><%= tag %></span>
+            <% }) %>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#topics">看看我在做什么 <span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="#about">先认识我 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <aside class="identity-card" aria-label="塔塔爸爸个人名片">
+          <div class="card-topline">
+            <span>IDENTITY / 001</span>
+            <span class="live-dot">持续更新中</span>
+          </div>
+          <div class="portrait-wrap">
+            <div class="portrait-glow" aria-hidden="true"></div>
+            <div class="portrait">
+              <img src="/assets/wechat-official-qr.jpg" alt="塔塔爸爸.ai 的小狗头像" />
+            </div>
+            <span class="portrait-stamp">AI<br />×<br />LIFE</span>
+          </div>
+          <div class="identity-meta">
+            <div>
+              <small>NAME</small>
+              <strong>塔塔爸爸</strong>
+            </div>
+            <div>
+              <small>FOCUS</small>
+              <strong>工作・教育・生活</strong>
+            </div>
+          </div>
+          <p>“不是预测未来，而是把今天的问题做成可以被体验的答案。”</p>
+        </aside>
+
+        <div class="hero-index" aria-label="网站主题概览">
+          <span>03</span>
+          <p>三个长期专题<br />一个真实的人</p>
+        </div>
+      </section>
+
+      <section class="topic-overview" id="topics" aria-labelledby="topic-title">
+        <header class="section-heading reveal">
+          <p>THREE LENSES / ONE PERSON</p>
+          <h2 id="topic-title">我关心的，不止是 AI。<br /><em>而是人如何继续成长。</em></h2>
+        </header>
+
+        <div class="topic-grid">
+          <% content.topics.forEach(function(topic) { %>
+            <a
+              class="topic-card reveal"
+              id="<%= topic.id %>"
+              href="#<%= topic.id %>-detail"
+              style="--topic-accent: <%= topic.accent %>"
+            >
+              <div class="topic-card-head">
+                <span><%= topic.number %></span>
+                <small><%= topic.note %></small>
+              </div>
+              <div class="topic-mark" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+              <h3><%= topic.title %></h3>
+              <p><%= topic.description %></p>
+              <span class="topic-link">进入专题 <b aria-hidden="true">↗</b></span>
+            </a>
+          <% }) %>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-aside reveal">
+          <p><%= content.profile.aboutKicker %></p>
+          <div class="about-avatar" aria-hidden="true">
+            <img src="/assets/wechat-official-qr.jpg" alt="" />
+          </div>
+          <span>一个人<br />三个切面<br />持续实践</span>
+        </div>
+        <div class="about-copy reveal">
+          <h2 id="about-title">
+            <% content.profile.aboutTitle.split("\n").forEach(function(line, index) { %>
+              <% if (index > 0) { %><br /><% } %><%= line %>
+            <% }) %>
+          </h2>
+          <p><%= content.profile.aboutBody %></p>
+          <blockquote>“<%= content.profile.quote %>”</blockquote>
+          <div class="about-axis" aria-label="我的三个观察坐标">
+            <div><span>01</span><strong>系统</strong><small>技术让我理解复杂世界</small></div>
+            <div><span>02</span><strong>选择</strong><small>产品让我理解真实需求</small></div>
+            <div><span>03</span><strong>成长</strong><small>孩子让我重新学习生活</small></div>
+          </div>
+        </div>
+      </section>
+
+      <%
+        const career = content.topics.find(function(topic) { return topic.id === "career"; });
+        const parenting = content.topics.find(function(topic) { return topic.id === "parenting"; });
+        const life = content.topics.find(function(topic) { return topic.id === "life"; });
+        const entry = function(id) { return content.entries.find(function(item) { return item.id === id && item.status !== "draft"; }); };
+        const careerFeature = entry("career-promotion-album");
+        const careerTopics = [entry("career-tech-to-pd"), entry("career-product-manager"), careerFeature].filter(Boolean);
+        const careerWorks = content.entries.filter(function(item) {
+          return item.status !== "draft" && item.topicId === "career" && ["product", "series"].includes(item.kind) && item.id !== "career-promotion-album";
+        }).sort(function(a, b) { return a.order - b.order; });
+        const childGame = entry("parenting-child-game");
+        const annualReview = entry("life-annual-review");
+        const videoChannel = content.channels.find(function(channel) { return channel.id === "video"; });
+        const wechatChannel = content.channels.find(function(channel) { return channel.id === "wechat"; });
+      %>
+
+      <% if (career) { %>
+        <section class="detail-section detail-career" id="career-detail" style="--section-accent: <%= career.accent %>">
+          <div class="detail-shell">
+            <header class="detail-header reveal">
+              <div class="detail-index">
+                <span><%= career.number %></span>
+                <small><%= career.note %></small>
+              </div>
+              <div>
+                <p><%= career.title %></p>
+                <h2>
+                  <% career.detailTitle.split("\n").forEach(function(line, index) { %>
+                    <% if (index > 0) { %><br /><% } %><%= line %>
+                  <% }) %>
+                </h2>
+                <div class="detail-intro">
+                  <p><%= career.detailIntro %></p>
+                  <span><%= career.principle %></span>
+                </div>
+              </div>
+            </header>
+
+            <div class="career-feature-grid">
+              <% if (careerFeature) { %>
+                <article class="feature-story reveal">
+                  <div class="feature-story-top">
+                    <span><%= careerFeature.eyebrow %></span>
+                    <span>↗ WECHAT ALBUM</span>
+                  </div>
+                  <div class="feature-story-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+                  <div class="feature-story-copy">
+                    <p><%= careerFeature.tags.join(" / ") %></p>
+                    <h3><%= careerFeature.title %></h3>
+                    <p><%= careerFeature.summary %></p>
+                    <a href="<%= careerFeature.href %>" target="_blank" rel="noreferrer">
+                      <%= careerFeature.actionLabel %><span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </article>
+              <% } %>
+
+              <% if (videoChannel) { %>
+                <article class="channel-teaser reveal">
+                  <div class="channel-teaser-head">
+                    <span><%= videoChannel.platform %></span>
+                    <b>VIDEO / FIELD NOTES</b>
+                  </div>
+                  <h3><%= videoChannel.title %></h3>
+                  <p><%= videoChannel.description %></p>
+                  <button class="qr-trigger" type="button" data-qr-open="<%= videoChannel.id %>">
+                    <span class="mini-avatar" aria-hidden="true"><img src="/assets/wechat-official-qr.jpg" alt="" /></span>
+                    <span>关注 <%= videoChannel.handle %></span>
+                    <b aria-hidden="true">扫码 ↗</b>
+                  </button>
+                </article>
+              <% } %>
+            </div>
+
+            <div class="subsection-heading reveal">
+              <div><span>03</span><p>公众号里的<br />三个长期专题</p></div>
+              <h3>从技术到产品，<br />再到影响一件事发生。</h3>
+            </div>
+
+            <div class="wechat-topic-grid">
+              <% careerTopics.forEach(function(item, index) { %>
+                <% if (item.href) { %>
+                  <a class="wechat-topic-card reveal" href="<%= item.href %>" target="_blank" rel="noreferrer">
+                <% } else { %>
+                  <article class="wechat-topic-card is-coming reveal">
+                <% } %>
+                    <span>0<%= index + 1 %> / TOPIC</span>
+                    <h4><%= item.title %></h4>
+                    <p><%= item.summary %></p>
+                    <div><small><%= item.tags.join(" · ") %></small><b><%= item.href ? "↗" : "待接入" %></b></div>
+                <% if (item.href) { %>
+                  </a>
+                <% } else { %>
+                  </article>
+                <% } %>
+              <% }) %>
+            </div>
+
+            <div class="subsection-heading works-heading reveal">
+              <div><span>LAB</span><p>把生活里的问题<br />做成可以使用的产品</p></div>
+              <h3>不止写下来，<br />也把答案做出来。</h3>
+            </div>
+
+            <div class="works-grid">
+              <% careerWorks.forEach(function(item, index) { %>
+                <article class="work-card reveal <%= item.href ? "" : "is-coming" %>">
+                  <div class="work-card-visual visual-<%= (index % 3) + 1 %>" aria-hidden="true">
+                    <span>0<%= index + 1 %></span>
+                    <i></i><i></i><i></i>
+                  </div>
+                  <div class="work-card-body">
+                    <p><%= item.eyebrow %></p>
+                    <h4><%= item.title %></h4>
+                    <p><%= item.summary %></p>
+                    <div class="work-tags"><% item.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
+                    <% if (item.href) { %>
+                      <a href="<%= item.href %>" target="_blank" rel="noreferrer"><%= item.actionLabel %> <span>↗</span></a>
+                    <% } else { %>
+                      <span class="muted-action"><%= item.actionLabel %></span>
+                    <% } %>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+          </div>
+        </section>
+      <% } %>
+
+      <% if (parenting) { %>
+        <section class="detail-section detail-parenting" id="parenting-detail" style="--section-accent: <%= parenting.accent %>">
+          <div class="detail-shell">
+            <header class="detail-header reveal">
+              <div class="detail-index">
+                <span><%= parenting.number %></span>
+                <small><%= parenting.note %></small>
+              </div>
+              <div>
+                <p><%= parenting.title %></p>
+                <h2>
+                  <% parenting.detailTitle.split("\n").forEach(function(line, index) { %>
+                    <% if (index > 0) { %><br /><% } %><%= line %>
+                  <% }) %>
+                </h2>
+                <div class="detail-intro">
+                  <p><%= parenting.detailIntro %></p>
+                  <span><%= parenting.principle %></span>
+                </div>
+              </div>
+            </header>
+
+            <div class="parenting-stage">
+              <% if (childGame) { %>
+                <article class="game-card reveal">
+                  <div class="game-window">
+                    <div class="game-window-bar"><i></i><i></i><i></i><span>PLAYGROUND.exe</span></div>
+                    <div class="game-scene" aria-hidden="true">
+                      <span class="pixel pixel-one"></span>
+                      <span class="pixel pixel-two"></span>
+                      <span class="pixel pixel-three"></span>
+                      <strong>?</strong>
+                      <small>想法 → 尝试 → 作品</small>
+                    </div>
+                  </div>
+                  <div class="game-copy">
+                    <p><%= childGame.eyebrow %></p>
+                    <h3><%= childGame.title %></h3>
+                    <p><%= childGame.summary %></p>
+                    <div class="work-tags"><% childGame.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
+                    <% if (childGame.href) { %>
+                      <a href="<%= childGame.href %>" target="_blank" rel="noreferrer"><%= childGame.actionLabel %> ↗</a>
+                    <% } else { %>
+                      <span class="muted-action"><%= childGame.actionLabel %></span>
+                    <% } %>
+                  </div>
+                </article>
+              <% } %>
+
+              <aside class="parenting-notes reveal">
+                <p>HOW WE MAKE</p>
+                <ol>
+                  <li><span>01</span><div><strong>孩子先提问题</strong><small>从真实的好奇出发，不由成人预设标准答案。</small></div></li>
+                  <li><span>02</span><div><strong>AI 帮忙搭脚手架</strong><small>构思、绘图和代码都可以协作，但选择留给孩子。</small></div></li>
+                  <li><span>03</span><div><strong>一定要做出作品</strong><small>可以粗糙，可以失败，但要完成一次可玩的表达。</small></div></li>
+                </ol>
+                <% if (videoChannel) { %>
+                  <button class="text-link qr-trigger" type="button" data-qr-open="<%= videoChannel.id %>">
+                    去视频号看创作现场 <span aria-hidden="true">↗</span>
+                  </button>
+                <% } %>
+              </aside>
+            </div>
+          </div>
+        </section>
+      <% } %>
+
+      <% if (life) { %>
+        <section class="detail-section detail-life" id="life-detail" style="--section-accent: <%= life.accent %>">
+          <div class="detail-shell">
+            <header class="detail-header reveal">
+              <div class="detail-index">
+                <span><%= life.number %></span>
+                <small><%= life.note %></small>
+              </div>
+              <div>
+                <p><%= life.title %></p>
+                <h2>
+                  <% life.detailTitle.split("\n").forEach(function(line, index) { %>
+                    <% if (index > 0) { %><br /><% } %><%= line %>
+                  <% }) %>
+                </h2>
+                <div class="detail-intro">
+                  <p><%= life.detailIntro %></p>
+                  <span><%= life.principle %></span>
+                </div>
+              </div>
+            </header>
+
+            <div class="life-grid">
+              <% if (annualReview) { %>
+                <article class="annual-card reveal">
+                  <div class="annual-years" aria-hidden="true">
+                    <span>2026</span><span>2025</span><span>2024</span><span>2023</span><span>…</span>
+                  </div>
+                  <div class="annual-copy">
+                    <p><%= annualReview.eyebrow %></p>
+                    <h3><%= annualReview.title %></h3>
+                    <p><%= annualReview.summary %></p>
+                    <a href="<%= annualReview.href %>" target="_blank" rel="noreferrer"><%= annualReview.actionLabel %> <span>↗</span></a>
+                  </div>
+                </article>
+              <% } %>
+
+              <% if (wechatChannel) { %>
+                <article class="wechat-card reveal">
+                  <div>
+                    <p><%= wechatChannel.platform %></p>
+                    <h3><%= wechatChannel.title %></h3>
+                    <p><%= wechatChannel.description %></p>
+                    <button class="button button-primary qr-trigger" type="button" data-qr-open="<%= wechatChannel.id %>">关注 <%= wechatChannel.handle %> <span>↗</span></button>
+                  </div>
+                  <button class="qr-preview qr-trigger" type="button" data-qr-open="<%= wechatChannel.id %>" aria-label="放大公众号二维码">
+                    <img src="<%= wechatChannel.qrImage %>" alt="<%= wechatChannel.handle %> 公众号二维码" />
+                    <span>点击放大</span>
+                  </button>
+                </article>
+              <% } %>
+            </div>
+          </div>
+        </section>
+      <% } %>
+
+      <section class="connect-section" id="connect" aria-labelledby="connect-title">
+        <header class="section-heading reveal">
+          <p>KEEP IN TOUCH / KEEP THINKING</p>
+          <h2 id="connect-title">如果你也在认真生活，<br /><em>我们还会再见。</em></h2>
+        </header>
+        <div class="connect-grid">
+          <% content.channels.forEach(function(channel) { %>
+            <article class="connect-card reveal">
+              <div>
+                <span><%= channel.platform %></span>
+                <h3><%= channel.handle %></h3>
+                <p><%= channel.description %></p>
+                <button class="text-link qr-trigger" type="button" data-qr-open="<%= channel.id %>">查看二维码 <b aria-hidden="true">↗</b></button>
+              </div>
+              <button class="connect-qr qr-trigger" type="button" data-qr-open="<%= channel.id %>" aria-label="放大<%= channel.platform %>二维码">
+                <img src="<%= channel.qrImage %>" alt="<%= channel.handle %> <%= channel.platform %>二维码" />
+              </button>
+            </article>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 塔塔爸爸.ai</span>
+      <span><%= content.settings.footerLine %></span>
+      <% if (content.settings.showAdminLink) { %><a href="/admin">内容后台</a><% } %>
+    </footer>
+
+    <dialog class="qr-dialog" data-qr-dialog>
+      <button class="dialog-close" type="button" data-qr-close aria-label="关闭二维码">×</button>
+      <% content.channels.forEach(function(channel) { %>
+        <div class="dialog-channel" data-qr-channel="<%= channel.id %>">
+          <span><%= channel.platform %></span>
+          <h2><%= channel.handle %></h2>
+          <img src="<%= channel.qrImage %>" alt="<%= channel.handle %> <%= channel.platform %>二维码" />
+          <p>在手机上长按识别，或使用微信扫一扫。</p>
+        </div>
+      <% }) %>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="csrf-token" content="<%= csrfToken %>" />
+    <meta name="theme-color" content="#f3f1eb" />
+    <title>内容后台｜塔塔爸爸.ai</title>
+    <link rel="stylesheet" href="/styles/admin.css" />
+    <script src="/scripts/admin.js" defer></script>
+  </head>
+  <body class="admin-page">
+    <aside class="admin-sidebar">
+      <a href="/" class="admin-brand" target="_blank">
+        <span class="admin-avatar"><img src="/assets/wechat-official-qr.jpg" alt="" /></span>
+        <span>塔塔爸爸.ai</span>
+      </a>
+      <nav aria-label="后台导航">
+        <button class="is-active" type="button" data-panel-target="overview"><span>01</span>总览</button>
+        <button type="button" data-panel-target="profile"><span>02</span>人物首页</button>
+        <button type="button" data-panel-target="topics"><span>03</span>三个专题</button>
+        <button type="button" data-panel-target="entries"><span>04</span>内容与作品</button>
+        <button type="button" data-panel-target="channels"><span>05</span>关注入口</button>
+        <button type="button" data-panel-target="deployment"><span>06</span>发布设置</button>
+      </nav>
+      <div class="sidebar-foot">
+        <form method="post" action="/admin/logout"><button type="submit">退出登录</button></form>
+        <span>PRIVATE STUDIO / v0.1</span>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <p>CONTENT OPERATING SYSTEM</p>
+          <h1 data-page-title>内容总览</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="save-status" data-save-status>所有修改已保存</span>
+          <a href="/" target="_blank">预览网站 ↗</a>
+          <button type="button" data-save>保存并更新前台</button>
+        </div>
+      </header>
+
+      <div class="admin-loading" data-loading>正在读取内容…</div>
+      <div class="admin-error" data-error hidden></div>
+
+      <section class="admin-panel is-active" data-panel="overview" aria-labelledby="overview-title">
+        <div class="panel-heading">
+          <div><p>OVERVIEW</p><h2 id="overview-title">今天的网站状态</h2></div>
+          <span>最后更新：<time data-updated-at><%= updatedAt %></time></span>
+        </div>
+        <div class="metric-grid">
+          <article><span>PROFILE</span><strong>1</strong><p>一个人物认知主线</p></article>
+          <article><span>TOPICS</span><strong>3</strong><p>三个并列长期专题</p></article>
+          <article><span>ENTRIES</span><strong data-entry-count>—</strong><p>篇内容、作品与入口</p></article>
+          <article><span>STORAGE</span><strong class="storage-label"><%= storageMode %></strong><p>当前内容存储方式</p></article>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card">
+            <span>NEXT BEST ACTION</span>
+            <h3>先补真实链接，再增加更多模块。</h3>
+            <p>后台已经可以维护三个专题、软件与游戏。未提供链接的内容会在前台明确显示“待接入”。</p>
+            <button type="button" data-go-panel="entries">去维护内容 →</button>
+          </article>
+          <article class="overview-card is-dark">
+            <span>CONTENT HEALTH</span>
+            <div class="health-row"><p>已发布并有链接</p><strong data-published-count>—</strong></div>
+            <div class="health-row"><p>等待补充链接</p><strong data-coming-count>—</strong></div>
+            <div class="health-row"><p>草稿，不在前台展示</p><strong data-draft-count>—</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-panel="profile" aria-labelledby="profile-title">
+        <div class="panel-heading">
+          <div><p>IDENTITY</p><h2 id="profile-title">人物首页</h2></div>
+          <span>决定访客最先认识怎样的你</span>
+        </div>
+        <form class="editor-card field-grid" data-profile-form></form>
+      </section>
+
+      <section class="admin-panel" data-panel="topics" aria-labelledby="topics-title">
+        <div class="panel-heading">
+          <div><p>THREE LENSES</p><h2 id="topics-title">三个专题</h2></div>
+          <span>标题、介绍和品牌色都可以独立维护</span>
+        </div>
+        <div class="topic-editor-list" data-topic-editors></div>
+      </section>
+
+      <section class="admin-panel" data-panel="entries" aria-labelledby="entries-title">
+        <div class="panel-heading">
+          <div><p>CONTENT LIBRARY</p><h2 id="entries-title">内容与作品</h2></div>
+          <button class="panel-action" type="button" data-new-entry>＋ 新建内容</button>
+        </div>
+        <div class="entry-toolbar">
+          <label>筛选专题<select data-entry-filter><option value="all">全部专题</option><option value="career">牛马职场</option><option value="parenting">育儿教育</option><option value="life">生活智慧</option></select></label>
+          <span>拖动排序将在后续版本提供；当前按“排序数字”排列。</span>
+        </div>
+        <div class="entry-list" data-entry-list></div>
+      </section>
+
+      <section class="admin-panel" data-panel="channels" aria-labelledby="channels-title">
+        <div class="panel-heading">
+          <div><p>SOCIAL CHANNELS</p><h2 id="channels-title">关注入口</h2></div>
+          <span>视频号与公众号二维码</span>
+        </div>
+        <div class="channel-editor-grid" data-channel-editors></div>
+      </section>
+
+      <section class="admin-panel" data-panel="deployment" aria-labelledby="deployment-title">
+        <div class="panel-heading">
+          <div><p>PRODUCTION</p><h2 id="deployment-title">发布设置</h2></div>
+          <span>Vercel / Express / PostgreSQL</span>
+        </div>
+        <div class="deployment-grid">
+          <article class="editor-card deployment-card">
+            <span>CURRENT STORAGE</span>
+            <h3><%= storageMode %></h3>
+            <p>本地开发写入项目数据文件；Vercel 生产环境需要配置 Neon PostgreSQL 才能保存后台修改。</p>
+          </article>
+          <article class="editor-card deployment-card">
+            <span>REQUIRED ENV</span>
+            <ul><li>ADMIN_USERNAME</li><li>ADMIN_PASSWORD_HASH</li><li>AUTH_SECRET</li><li>DATABASE_URL</li></ul>
+          </article>
+          <form class="editor-card field-grid" data-settings-form></form>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="entry-dialog" data-entry-dialog>
+      <form method="dialog" class="entry-dialog-form" data-entry-form>
+        <header><div><p>CONTENT ENTRY</p><h2 data-entry-dialog-title>新建内容</h2></div><button type="button" data-close-entry aria-label="关闭">×</button></header>
+        <div class="field-grid" data-entry-fields></div>
+        <footer><button type="button" data-delete-entry hidden>删除内容</button><span></span><button type="button" data-close-entry>取消</button><button type="submit">完成编辑</button></footer>
+      </form>
+    </dialog>
+
+    <div class="toast" data-toast hidden></div>
+  </body>
+</html>
