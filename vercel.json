@@ -4,7 +4,7 @@
   "fluid": true,
   "functions": {
     "src/index.ts": {
-      "includeFiles": ["views/**", "data/**"],
+      "includeFiles": "{views/**,data/**}",
       "maxDuration": 30
     }
   },
