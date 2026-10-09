@@ -32,6 +32,16 @@ test("公开首页包含人物主线和三个专题", async () => {
   assert.match(html, /AI 时代的生活智慧/);
 });
 
+test("首屏默认展示视频号二维码并可切换公众号", async () => {
+  const response = await fetch(`${baseUrl}/`);
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /class="hero-qr-frame hero-qr-frame-video is-active"[\s\S]*?data-hero-qr-channel="video"/);
+  assert.match(html, /data-hero-qr-channel="wechat"[\s\S]*?hidden/);
+  assert.match(html, /data-hero-qr-toggle[\s\S]*?切换公众号/);
+  assert.doesNotMatch(html, /class="connect-section"/);
+});
+
 test("后台接口拒绝未登录访问", async () => {
   const response = await fetch(`${baseUrl}/api/admin/content`);
   assert.equal(response.status, 401);

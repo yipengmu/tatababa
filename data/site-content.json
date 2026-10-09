@@ -2,19 +2,19 @@
   "profile": {
     "brand": "塔塔爸爸.ai",
     "eyebrow": "A HUMAN SITE IN AN AI AGE",
-    "headline": "在 AI 时代，",
-    "headlineAccent": "认真做一个人",
-    "intro": "我是塔塔爸爸，一个AI产品实践者，有俩儿子。这里记录我走过的职场弯路、和孩子一起完成的创造，也收藏一些生活小感悟。",
+    "headline": "在 AI时代，",
+    "headlineAccent": "做真实的自己",
+    "intro": "我是塔塔爸爸，一个AI产品实践者，有俩儿子 分享我走过的职场叉路、和爸爸成长之路",
     "identityTags": [
       "技术人",
-      "产品实践者",
-      "俩儿子的爸爸",
-      "长期写作者"
+      "AI产品经理",
+      "俩儿子爸爸",
+      "长期分享者"
     ],
     "aboutKicker": "ABOUT / THE PERSON BEHIND THE SCREEN",
-    "aboutTitle": "我不想只谈 AI，\n我更想谈谈使用 AI 的人。",
-    "aboutBody": "写代码让我理解系统，做产品让我理解选择，成为父亲以后，我开始重新理解成长。这三个身份不冲突，共同构成了我观察 AI 时代的方式",
-    "quote": "先把问题活明白，再把答案做出来。"
+    "aboutTitle": "谈谈使用 AI 的人\n",
+    "aboutBody": "写代码让我理解系统，做产品让我理解选择，成为父亲以后，我开始重新理解成长 这三个身份不冲突，共同构成了我观察 AI 时代的方式",
+    "quote": "先把问题活明白，再把答案做出来"
   },
   "topics": [
     {
@@ -22,36 +22,36 @@
       "number": "01",
       "shortTitle": "牛马职场",
       "title": "AI 时代的牛马职场",
-      "description": "从程序员转型到产品与管理，把真实的大厂经验变成普通人可以复用的方法。",
+      "description": "从程序员转型到产品与管理，把真实的大厂经验变成普通职场牛马可复用的方法",
       "note": "WORK / GROWTH / TOOLS",
       "accent": "#ff6b35",
-      "detailTitle": "在大厂做牛马，\n也要有自己的方法。",
-      "detailIntro": "关于程序员转型、产品思维、大厂晋升，以及我为真实问题做出来的工具。只分享被验证的经验。",
-      "principle": "工作不是永远爬梯子。"
+      "detailTitle": "虽职场牛马",
+      "detailIntro": "关于程序员转型、产品思维、大厂晋升，要有正确的行动方法",
+      "principle": "工作不是永远爬梯子"
     },
     {
       "id": "parenting",
       "number": "02",
       "shortTitle": "育儿教育",
       "title": "AI 时代的育儿教育",
-      "description": "和孩子一起提问、创造、做游戏，让 AI 成为想象力的脚手架，而不是标准答案。",
+      "description": "和孩子一起提问、创造、成长，让 AI让孩子更好地认识世界，而不只是一个故事机器人",
       "note": "PARENTING / MAKING / PLAY",
       "accent": "#31a77a",
-      "detailTitle": "和孩子一起，\n把小小好奇心做成小小作品。",
-      "detailIntro": "AI 能快速给出答案，但教育更重要的仍是提出问题、做出选择和完成作品。这里记录我们一起做游戏、试工具和复盘过程。",
-      "principle": "AI 是脚手架，孩子才是创作者。"
+      "detailTitle": "小小好奇心，小小作品",
+      "detailIntro": "AI 能快速给出答案，但教育更重要的仍是提出问题、做出选择和完成作品 这里记录我们一起做游戏、试工具和复盘过程",
+      "principle": "AI 是营养，孩子才是种子"
     },
     {
       "id": "life",
       "number": "03",
       "shortTitle": "生活智慧",
       "title": "AI 时代的生活智慧",
-      "description": "科技改变知识普及，但生活仍需智慧",
+      "description": "科技让知识普及，但生活仍需智慧",
       "note": "LIFE / WRITING / REFLECTION",
       "accent": "#6c63ff",
-      "detailTitle": "技术变化很快，\n 道则绵绵若存",
-      "detailIntro": "我用公众号和年度总结保存那些无法被 KPI 衡量的变化：家庭、选择、得失，以及每一年重新认识自己的过程。",
-      "principle": "为学日益，为道日损，损之又损，以至于无为，无为而无不为。"
+      "detailTitle": "变化很快，道则绵绵若存",
+      "detailIntro": "我用公众号和年度总结保存那些无法被 KPI 衡量的变化：家庭、选择、得失，以及每一年重新认识自己的过程",
+      "principle": "为学日益，为道日损，损之又损，以至于无为，无为而无不为"
     }
   ],
   "entries": [
@@ -61,7 +61,7 @@
       "kind": "series",
       "eyebrow": "FEATURED SERIES",
       "title": "大厂晋升系列",
-      "summary": "从爬梯子、小现场、问自己到大收获，系统复盘晋升背后的判断、影响力与长期能力。",
+      "summary": "从爬梯子、小现场、问自己到大收获，系统复盘晋升背后的判断、影响力与长期能力",
       "href": "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODc0NzgwNg==&action=getalbum&album_id=2105137822998249480&scene=305#wechat_redirect",
       "cover": "",
       "actionLabel": "查看完整系列",
@@ -80,7 +80,7 @@
       "kind": "topic",
       "eyebrow": "WECHAT TOPIC 01",
       "title": "技术转 PD",
-      "summary": "从安卓转前端、全栈角色到能力象限，记录技术人转向产品与业务视角的真实路径。",
+      "summary": "从安卓转前端、全栈角色到能力象限，记录技术人转向产品与业务视角的真实路径",
       "href": "",
       "cover": "",
       "actionLabel": "专题链接待接入",
@@ -98,7 +98,7 @@
       "kind": "topic",
       "eyebrow": "WECHAT TOPIC 02",
       "title": "产品经理",
-      "summary": "思维模式、2B 互联网、贵人指路，以及 30 岁和 35 岁之后仍然有用的产品判断。",
+      "summary": "思维模式、2B 互联网、贵人指路，以及 30 岁和 35 岁之后仍然有用的产品判断",
       "href": "",
       "cover": "",
       "actionLabel": "专题链接待接入",
@@ -116,7 +116,7 @@
       "kind": "series",
       "eyebrow": "ONGOING SERIES",
       "title": "程序员转型系列",
-      "summary": "从只对代码负责，到对用户、业务和结果负责。整理那些真正改变职业路径的现场经验。",
+      "summary": "从只对代码负责，到对用户、业务和结果负责 整理那些真正改变职业路径的现场经验",
       "href": "",
       "cover": "",
       "actionLabel": "内容整理中",
@@ -134,7 +134,7 @@
       "kind": "product",
       "eyebrow": "OPEN SOFTWARE",
       "title": "家谱产品",
-      "summary": "把散落在记忆里的家庭关系，做成可以被下一代继续补充和理解的数字家谱。",
+      "summary": "把散落在记忆里的家庭关系，做成可以被下一代继续补充和理解的数字家谱",
       "href": "",
       "cover": "",
       "actionLabel": "体验链接待补",
@@ -152,7 +152,7 @@
       "kind": "product",
       "eyebrow": "OPEN SOFTWARE",
       "title": "口播 App",
-      "summary": "为真实表达而做的轻量口播工具，让准备、录制和复盘少一点摩擦。",
+      "summary": "为真实表达而做的轻量口播工具，让准备、录制和复盘少一点摩擦",
       "href": "",
       "cover": "",
       "actionLabel": "体验链接待补",
@@ -170,7 +170,7 @@
       "kind": "game",
       "eyebrow": "MADE BY KIDS",
       "title": "小朋友做的游戏",
-      "summary": "不是一份成人代做的作业，而是从孩子的想法出发，和 AI 一起把玩法真正做出来。",
+      "summary": "不是一份成人代做的作业，而是从孩子的想法出发，和 AI 一起把玩法真正做出来",
       "href": "",
       "cover": "",
       "actionLabel": "作品即将接入",
@@ -188,7 +188,7 @@
       "kind": "series",
       "eyebrow": "YEAR BY YEAR",
       "title": "每年的年度总结",
-      "summary": "把每一年真正发生的变化写下来。不是流水账，而是一次对选择、得失和成长的诚实复盘。",
+      "summary": "把每一年真正发生的变化写下来 不是流水账，而是一次对选择、得失和成长的诚实复盘",
       "href": "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODc0NzgwNg==&action=getalbum&album_id=1667762019313172483&scene=305#wechat_redirect",
       "cover": "",
       "actionLabel": "查看历年总结",
@@ -207,7 +207,7 @@
       "platform": "微信视频号",
       "title": "在视频里看见现场",
       "handle": "塔塔爸爸.ai",
-      "description": "职场经验、AI 实践和亲子共创，用更接近现场的方式讲清楚。",
+      "description": "职场经验、AI 实践和亲子共创，用更接近现场的方式讲清楚",
       "qrImage": "/assets/video-channel-qr.jpg",
       "href": ""
     },
@@ -216,7 +216,7 @@
       "platform": "微信公众号",
       "title": "在文字里保存长期思考",
       "handle": "塔塔爸爸.ai",
-      "description": "完整专题、系列文章与年度总结，都沉淀在这里。",
+      "description": "完整专题、系列文章与年度总结，都沉淀在这里",
       "qrImage": "/assets/wechat-official-qr.jpg",
       "href": ""
     }

@@ -12,7 +12,7 @@
     <meta property="og:image" content="<%= socialImageUrl %>" />
     <meta property="og:image:width" content="1731" />
     <meta property="og:image:height" content="909" />
-    <meta property="og:image:alt" content="塔塔爸爸.ai：在 AI 时代，认真做一个人。" />
+    <meta property="og:image:alt" content="塔塔爸爸.ai：在 AI 时代，认真做一个人" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<%= pageTitle %>" />
     <meta name="twitter:description" content="<%= pageDescription %>" />
@@ -23,6 +23,11 @@
     <script src="/scripts/site.js" defer></script>
   </head>
   <body>
+    <%
+      const heroVideoChannel = content.channels.find(function(channel) { return channel.id === "video"; });
+      const heroWechatChannel = content.channels.find(function(channel) { return channel.id === "wechat"; });
+      const heroChannels = [heroVideoChannel, heroWechatChannel].filter(Boolean);
+    %>
     <a class="skip-link" href="#main">跳到主要内容</a>
     <div class="noise" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -61,47 +66,65 @@
               <span><%= tag %></span>
             <% }) %>
           </div>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#topics">看看我在做什么 <span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" href="#about">先认识我 <span aria-hidden="true">→</span></a>
+          <div class="hero-index-grid" aria-label="内容索引">
+            <div>
+              <strong>03</strong>
+              <span>长期专题</span>
+            </div>
+            <div>
+              <strong><%= content.entries.filter(function(item) { return item.status !== "draft"; }).length %></strong>
+              <span>已发布记录</span>
+            </div>
+            <div>
+              <strong>∞</strong>
+              <span>持续更新</span>
+            </div>
           </div>
         </div>
 
-        <aside class="identity-card" aria-label="塔塔爸爸个人名片">
+        <aside class="identity-card" aria-label="塔塔爸爸二维码名片">
           <div class="card-topline">
-            <span>IDENTITY / 001</span>
-            <span class="live-dot">持续更新中</span>
+            <span>CONNECT / 001</span>
+            <span class="live-dot">扫码关注</span>
           </div>
-          <div class="portrait-wrap">
+          <div class="portrait-wrap hero-qr-stage">
             <div class="portrait-glow" aria-hidden="true"></div>
-            <div class="portrait">
-              <img src="/assets/wechat-official-qr.jpg" alt="塔塔爸爸.ai 的小狗头像" />
-            </div>
-            <span class="portrait-stamp">AI<br />×<br />LIFE</span>
-          </div>
-          <div class="identity-meta">
-            <div>
-              <small>NAME</small>
-              <strong>塔塔爸爸</strong>
-            </div>
-            <div>
-              <small>FOCUS</small>
-              <strong>工作・教育・生活</strong>
+            <div class="hero-qr-display" aria-label="当前显示视频号二维码">
+              <% heroChannels.forEach(function(channel) { %>
+                <span
+                  class="hero-qr-frame hero-qr-frame-<%= channel.id %><%= channel.id === "video" ? " is-active" : "" %>"
+                  data-hero-qr-channel="<%= channel.id %>"
+                  <%= channel.id === "video" ? "" : "hidden" %>
+                >
+                  <img src="<%= channel.qrImage %>" alt="<%= channel.handle %> <%= channel.platform %>二维码" />
+                </span>
+              <% }) %>
             </div>
           </div>
-          <p>“不是预测未来，而是把今天的问题做成可以被体验的答案。”</p>
+          <div class="hero-qr-footer">
+            <div class="hero-qr-copy" aria-live="polite">
+              <% heroChannels.forEach(function(channel) { %>
+                <div data-hero-qr-copy="<%= channel.id %>" <%= channel.id === "video" ? "" : "hidden" %>>
+                  <small><%= channel.platform %></small>
+                  <strong><%= channel.handle %></strong>
+                </div>
+              <% }) %>
+            </div>
+            <button class="hero-qr-toggle" type="button" data-hero-qr-toggle aria-label="切换到公众号二维码">
+              <span aria-hidden="true">↔</span>
+              <span data-hero-qr-toggle-label>切换公众号</span>
+            </button>
+          </div>
         </aside>
 
         <div class="hero-index" aria-label="网站主题概览">
-          <span>03</span>
-          <p>三个长期专题<br />一个真实的人</p>
         </div>
       </section>
 
       <section class="topic-overview" id="topics" aria-labelledby="topic-title">
         <header class="section-heading reveal">
           <p>THREE LENSES / ONE PERSON</p>
-          <h2 id="topic-title">我关心的，不止是 AI。<br /><em>而是人如何继续成长。</em></h2>
+          <h2 id="topic-title">我们这群人，<br /><em>How to be good</em></h2>
         </header>
 
         <div class="topic-grid">
@@ -227,7 +250,7 @@
 
             <div class="subsection-heading reveal">
               <div><span>03</span><p>公众号里的<br />三个长期专题</p></div>
-              <h3>从技术到产品，<br />再到影响一件事发生。</h3>
+              <h3>技术到产品</h3>
             </div>
 
             <div class="wechat-topic-grid">
@@ -251,7 +274,7 @@
 
             <div class="subsection-heading works-heading reveal">
               <div><span>LAB</span><p>把生活里的问题<br />做成可以使用的产品</p></div>
-              <h3>不止写下来，<br />也把答案做出来。</h3>
+              <h3>写下来，做出来</h3>
             </div>
 
             <div class="works-grid">
@@ -331,9 +354,9 @@
               <aside class="parenting-notes reveal">
                 <p>HOW WE MAKE</p>
                 <ol>
-                  <li><span>01</span><div><strong>孩子先提问题</strong><small>从真实的好奇出发，不由成人预设标准答案。</small></div></li>
-                  <li><span>02</span><div><strong>AI 帮忙搭脚手架</strong><small>构思、绘图和代码都可以协作，但选择留给孩子。</small></div></li>
-                  <li><span>03</span><div><strong>一定要做出作品</strong><small>可以粗糙，可以失败，但要完成一次可玩的表达。</small></div></li>
+                  <li><span>01</span><div><strong>孩子先提问题</strong><small>从真实的好奇出发，不由成人预设标准答案</small></div></li>
+                  <li><span>02</span><div><strong>AI 帮忙搭脚手架</strong><small>构思、绘图和代码都可以协作，但选择留给孩子</small></div></li>
+                  <li><span>03</span><div><strong>一定要做出作品</strong><small>可以粗糙，可以失败，但要完成一次可玩的表达</small></div></li>
                 </ol>
                 <% if (videoChannel) { %>
                   <button class="text-link qr-trigger" type="button" data-qr-open="<%= videoChannel.id %>">
@@ -402,27 +425,6 @@
         </section>
       <% } %>
 
-      <section class="connect-section" id="connect" aria-labelledby="connect-title">
-        <header class="section-heading reveal">
-          <p>KEEP IN TOUCH / KEEP THINKING</p>
-          <h2 id="connect-title">如果你也在认真生活，<br /><em>我们还会再见。</em></h2>
-        </header>
-        <div class="connect-grid">
-          <% content.channels.forEach(function(channel) { %>
-            <article class="connect-card reveal">
-              <div>
-                <span><%= channel.platform %></span>
-                <h3><%= channel.handle %></h3>
-                <p><%= channel.description %></p>
-                <button class="text-link qr-trigger" type="button" data-qr-open="<%= channel.id %>">查看二维码 <b aria-hidden="true">↗</b></button>
-              </div>
-              <button class="connect-qr qr-trigger" type="button" data-qr-open="<%= channel.id %>" aria-label="放大<%= channel.platform %>二维码">
-                <img src="<%= channel.qrImage %>" alt="<%= channel.handle %> <%= channel.platform %>二维码" />
-              </button>
-            </article>
-          <% }) %>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -438,7 +440,7 @@
           <span><%= channel.platform %></span>
           <h2><%= channel.handle %></h2>
           <img src="<%= channel.qrImage %>" alt="<%= channel.handle %> <%= channel.platform %>二维码" />
-          <p>在手机上长按识别，或使用微信扫一扫。</p>
+          <p>在手机上长按识别，或使用微信扫一扫</p>
         </div>
       <% }) %>
     </dialog>

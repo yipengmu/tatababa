@@ -7,6 +7,11 @@
   const qrTriggers = document.querySelectorAll("[data-qr-open]");
   const qrChannels = document.querySelectorAll("[data-qr-channel]");
   const qrClose = document.querySelector("[data-qr-close]");
+  const heroQrDisplay = document.querySelector(".hero-qr-display");
+  const heroQrToggle = document.querySelector("[data-hero-qr-toggle]");
+  const heroQrToggleLabel = document.querySelector("[data-hero-qr-toggle-label]");
+  const heroQrChannels = [...document.querySelectorAll("[data-hero-qr-channel]")];
+  const heroQrCopies = [...document.querySelectorAll("[data-hero-qr-copy]")];
 
   const updateScroll = () => {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -36,6 +41,29 @@
   qrClose?.addEventListener("click", closeQrDialog);
   qrDialog?.addEventListener("click", (event) => {
     if (event.target === qrDialog) closeQrDialog();
+  });
+
+  const selectHeroQr = (selected) => {
+    heroQrChannels.forEach((channel) => {
+      const active = channel.getAttribute("data-hero-qr-channel") === selected;
+      channel.hidden = !active;
+      channel.classList.toggle("is-active", active);
+    });
+    heroQrCopies.forEach((copy) => {
+      copy.hidden = copy.getAttribute("data-hero-qr-copy") !== selected;
+    });
+    if (heroQrToggle) {
+      const nextLabel = selected === "video" ? "公众号" : "视频号";
+      const currentLabel = selected === "video" ? "视频号" : "公众号";
+      heroQrToggle.setAttribute("aria-label", `切换到${nextLabel}二维码`);
+      heroQrToggle.setAttribute("data-current-channel", selected);
+      if (heroQrToggleLabel) heroQrToggleLabel.textContent = `切换${nextLabel}`;
+      heroQrDisplay?.setAttribute("aria-label", `当前显示${currentLabel}二维码`);
+    }
+  };
+
+  heroQrToggle?.addEventListener("click", () => {
+    selectHeroQr(heroQrToggle.getAttribute("data-current-channel") === "wechat" ? "video" : "wechat");
   });
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
