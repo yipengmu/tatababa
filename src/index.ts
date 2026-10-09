@@ -2,7 +2,21 @@ import path from "node:path";
 import cookieParser from "cookie-parser";
 import ejs from "ejs";
 import express, { type NextFunction, type Request, type Response } from "express";
-import * as helmetModule from "helmet";
+import {
+  contentSecurityPolicy,
+  crossOriginOpenerPolicy,
+  crossOriginResourcePolicy,
+  originAgentCluster,
+  referrerPolicy,
+  strictTransportSecurity,
+  xContentTypeOptions,
+  xDnsPrefetchControl,
+  xDownloadOptions,
+  xFrameOptions,
+  xPermittedCrossDomainPolicies,
+  xPoweredBy,
+  xXssProtection
+} from "helmet";
 import { ZodError } from "zod";
 import {
   clearAdminSession,
@@ -42,18 +56,27 @@ app.set("trust proxy", 1);
 app.disable("x-powered-by");
 
 app.use(
-  helmetModule.default({
-    contentSecurityPolicy: {
-      directives: {
-        "default-src": ["'self'"],
-        "img-src": ["'self'", "data:", "https:"],
-        "script-src": ["'self'"],
-        "style-src": ["'self'", "'unsafe-inline'"],
-        "connect-src": ["'self'"]
-      }
-    },
-    crossOriginResourcePolicy: { policy: "cross-origin" }
-  })
+  contentSecurityPolicy({
+    directives: {
+      "default-src": ["'self'"],
+      "img-src": ["'self'", "data:", "https:"],
+      "script-src": ["'self'"],
+      "style-src": ["'self'", "'unsafe-inline'"],
+      "connect-src": ["'self'"]
+    }
+  }),
+  crossOriginOpenerPolicy(),
+  crossOriginResourcePolicy({ policy: "cross-origin" }),
+  originAgentCluster(),
+  referrerPolicy(),
+  strictTransportSecurity(),
+  xContentTypeOptions(),
+  xDnsPrefetchControl(),
+  xDownloadOptions(),
+  xFrameOptions(),
+  xPermittedCrossDomainPolicies(),
+  xPoweredBy(),
+  xXssProtection()
 );
 app.use(cookieParser());
 app.use(express.json({ limit: "1mb" }));
