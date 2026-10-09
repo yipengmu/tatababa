@@ -2,7 +2,7 @@ import path from "node:path";
 import cookieParser from "cookie-parser";
 import ejs from "ejs";
 import express, { type NextFunction, type Request, type Response } from "express";
-import helmet from "helmet";
+import * as helmetModule from "helmet";
 import { ZodError } from "zod";
 import {
   clearAdminSession,
@@ -42,7 +42,7 @@ app.set("trust proxy", 1);
 app.disable("x-powered-by");
 
 app.use(
-  helmet({
+  helmetModule.default({
     contentSecurityPolicy: {
       directives: {
         "default-src": ["'self'"],
