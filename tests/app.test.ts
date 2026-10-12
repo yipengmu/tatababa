@@ -50,6 +50,14 @@ test("职场区块保留卡片并替换为晋升系列内容", async () => {
   assert.doesNotMatch(html, /程序员转型系列/);
 });
 
+test("技术到产品的两个卡片统一移动到写下来做出来区块", async () => {
+  const response = await fetch(`${baseUrl}/`);
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.doesNotMatch(html, /class="wechat-topic-grid"/);
+  assert.match(html, /class="works-grid"[\s\S]*?技术转 PD[\s\S]*?产品经理/);
+});
+
 test("后台接口拒绝未登录访问", async () => {
   const response = await fetch(`${baseUrl}/api/admin/content`);
   assert.equal(response.status, 401);

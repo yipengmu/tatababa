@@ -1155,7 +1155,6 @@ h2 em {
   line-height: 1.7;
 }
 
-.wechat-topic-card,
 .work-card,
 .game-card,
 .parenting-notes,
@@ -1219,67 +1218,6 @@ h2 em {
   font-size: clamp(38px, 4.4vw, 62px);
   line-height: 1.08;
   letter-spacing: -0.055em;
-}
-
-.wechat-topic-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.wechat-topic-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 340px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.35);
-  transition: transform 240ms var(--ease), background 240ms ease;
-}
-
-.wechat-topic-card[href]:hover {
-  background: white;
-  transform: translateY(-6px);
-}
-
-.wechat-topic-card > span {
-  color: var(--orange);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-}
-
-.wechat-topic-card h4 {
-  margin: auto 0 16px;
-  font-size: clamp(30px, 3vw, 44px);
-  letter-spacing: -0.05em;
-}
-
-.wechat-topic-card > p {
-  min-height: 94px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.75;
-}
-
-.wechat-topic-card > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.wechat-topic-card small {
-  color: var(--muted);
-}
-
-.wechat-topic-card b {
-  color: var(--orange);
-  font-size: 12px;
-}
-
-.wechat-topic-card.is-coming {
-  border-style: dashed;
 }
 
 .works-heading {
@@ -1883,7 +1821,6 @@ h2 em {
     grid-template-columns: 1fr;
   }
 
-  .wechat-topic-grid,
   .works-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1929,13 +1866,8 @@ h2 em {
     font-size: 40px;
   }
 
-  .wechat-topic-grid,
   .works-grid {
     grid-template-columns: 1fr;
-  }
-
-  .wechat-topic-card {
-    min-height: 300px;
   }
 
   .annual-card {
