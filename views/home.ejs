@@ -154,16 +154,13 @@
         const parenting = content.topics.find(function(topic) { return topic.id === "parenting"; });
         const life = content.topics.find(function(topic) { return topic.id === "life"; });
         const entry = function(id) { return content.entries.find(function(item) { return item.id === id && item.status !== "draft"; }); };
-        const careerFeature = entry("career-promotion-album");
-        const careerTopics = [entry("career-tech-to-pd"), entry("career-product-manager"), careerFeature].filter(Boolean);
         const careerWorks = content.entries.filter(function(item) {
-          return item.status !== "draft" && item.topicId === "career" && ["product", "series"].includes(item.kind) && item.id !== "career-promotion-album";
+          return item.status !== "draft" && item.topicId === "career" && ["topic", "product", "series"].includes(item.kind) && item.id !== "career-promotion-album";
         }).sort(function(a, b) { return a.order - b.order; });
         const childGames = content.entries.filter(function(item) {
           return item.status !== "draft" && item.topicId === "parenting" && item.kind === "game";
         }).sort(function(a, b) { return a.order - b.order; });
         const annualReview = entry("life-annual-review");
-        const videoChannel = content.channels.find(function(channel) { return channel.id === "video"; });
         const wechatChannel = content.channels.find(function(channel) { return channel.id === "wechat"; });
       %>
 
@@ -189,68 +186,8 @@
               </div>
             </header>
 
-            <div class="career-feature-grid">
-              <% if (careerFeature) { %>
-                <article class="feature-story reveal">
-                  <div class="feature-story-top">
-                    <span><%= careerFeature.eyebrow %></span>
-                    <span>↗ WECHAT ALBUM</span>
-                  </div>
-                  <div class="feature-story-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
-                  <div class="feature-story-copy">
-                    <p><%= careerFeature.tags.join(" / ") %></p>
-                    <h3><%= careerFeature.title %></h3>
-                    <p><%= careerFeature.summary %></p>
-                    <a href="<%= careerFeature.href %>" target="_blank" rel="noreferrer">
-                      <%= careerFeature.actionLabel %><span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
-                </article>
-              <% } %>
-
-              <% if (videoChannel) { %>
-                <article class="channel-teaser reveal">
-                  <div class="channel-teaser-head">
-                    <span><%= videoChannel.platform %></span>
-                    <b>VIDEO / FIELD NOTES</b>
-                  </div>
-                  <h3><%= videoChannel.title %></h3>
-                  <p><%= videoChannel.description %></p>
-                  <button class="qr-trigger" type="button" data-qr-open="<%= videoChannel.id %>">
-                    <span class="mini-avatar" aria-hidden="true"><img src="/assets/wechat-official-qr.jpg" alt="" /></span>
-                    <span>关注 <%= videoChannel.handle %></span>
-                    <b aria-hidden="true">扫码 ↗</b>
-                  </button>
-                </article>
-              <% } %>
-            </div>
-
-            <div class="subsection-heading reveal">
-              <div><span>03</span><p>公众号里的<br />三个长期专题</p></div>
-              <h3>技术到产品</h3>
-            </div>
-
-            <div class="wechat-topic-grid">
-              <% careerTopics.forEach(function(item, index) { %>
-                <% if (item.href) { %>
-                  <a class="wechat-topic-card reveal" href="<%= item.href %>" target="_blank" rel="noreferrer">
-                <% } else { %>
-                  <article class="wechat-topic-card is-coming reveal">
-                <% } %>
-                    <span>0<%= index + 1 %> / TOPIC</span>
-                    <h4><%= item.title %></h4>
-                    <p><%= item.summary %></p>
-                    <div><small><%= item.tags.join(" · ") %></small><b><%= item.href ? "↗" : "待接入" %></b></div>
-                <% if (item.href) { %>
-                  </a>
-                <% } else { %>
-                  </article>
-                <% } %>
-              <% }) %>
-            </div>
-
             <div class="subsection-heading works-heading reveal">
-              <div><span>LAB</span><p>把生活里的问题<br />做成可以使用的产品</p></div>
+              <div><span>05</span><p>公众号专题与独立作品<br />都在这里持续展开</p></div>
               <h3>写下来，做出来</h3>
             </div>
 
@@ -343,11 +280,6 @@
                   <li><span>02</span><div><strong>AI 帮忙搭脚手架</strong><small>构思、绘图和代码都可以协作，但选择留给孩子</small></div></li>
                   <li><span>03</span><div><strong>一定要做出作品</strong><small>可以粗糙，可以失败，但要完成一次可玩的表达</small></div></li>
                 </ol>
-                <% if (videoChannel) { %>
-                  <button class="text-link qr-trigger" type="button" data-qr-open="<%= videoChannel.id %>">
-                    去视频号看创作现场 <span aria-hidden="true">↗</span>
-                  </button>
-                <% } %>
               </aside>
             </div>
           </div>

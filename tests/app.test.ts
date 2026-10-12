@@ -42,6 +42,14 @@ test("首屏默认展示视频号二维码并可切换公众号", async () => {
   assert.doesNotMatch(html, /class="connect-section"/);
 });
 
+test("职场区块保留卡片并替换为晋升系列内容", async () => {
+  const response = await fetch(`${baseUrl}/`);
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /class="work-card reveal [^"]*"[\s\S]*?大厂晋升系列[\s\S]*?大厂[\s\S]*?晋升[\s\S]*?方法论[\s\S]*?查看完整系列/);
+  assert.doesNotMatch(html, /程序员转型系列/);
+});
+
 test("后台接口拒绝未登录访问", async () => {
   const response = await fetch(`${baseUrl}/api/admin/content`);
   assert.equal(response.status, 401);

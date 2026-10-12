@@ -110,15 +110,16 @@
       "id": "career-programmer-transition",
       "topicId": "career",
       "kind": "series",
-      "eyebrow": "ONGOING SERIES",
-      "title": "程序员转型系列",
-      "summary": "从只对代码负责，到对用户、业务和结果负责 整理那些真正改变职业路径的现场经验",
+      "eyebrow": "FEATURED SERIES",
+      "title": "大厂晋升系列",
+      "summary": "从爬梯子、小现场、问自己到大收获，系统复盘晋升背后的判断、影响力与长期能力",
       "href": "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODc0NzgwNg==&action=getalbum&album_id=2105137822998249480&scene=305#wechat_redirect",
       "cover": "",
       "actionLabel": "查看完整系列",
       "tags": [
-        "程序员",
-        "职业转型"
+        "大厂",
+        "晋升",
+        "方法论"
       ],
       "status": "published",
       "featured": false,
