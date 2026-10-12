@@ -40,7 +40,6 @@
         <span><%= content.profile.brand %></span>
       </a>
       <nav class="main-nav" aria-label="主导航">
-        <a href="#about">关于我</a>
         <% content.topics.forEach(function(topic) { %>
           <a href="#<%= topic.id %>"><%= topic.shortTitle %></a>
         <% }) %>
@@ -150,30 +149,6 @@
         </div>
       </section>
 
-      <section class="about-section" id="about" aria-labelledby="about-title">
-        <div class="about-aside reveal">
-          <p><%= content.profile.aboutKicker %></p>
-          <div class="about-avatar" aria-hidden="true">
-            <img src="/assets/wechat-official-qr.jpg" alt="" />
-          </div>
-          <span>一个人<br />三个切面<br />持续实践</span>
-        </div>
-        <div class="about-copy reveal">
-          <h2 id="about-title">
-            <% content.profile.aboutTitle.split("\n").forEach(function(line, index) { %>
-              <% if (index > 0) { %><br /><% } %><%= line %>
-            <% }) %>
-          </h2>
-          <p><%= content.profile.aboutBody %></p>
-          <blockquote>“<%= content.profile.quote %>”</blockquote>
-          <div class="about-axis" aria-label="我的三个观察坐标">
-            <div><span>01</span><strong>系统</strong><small>技术让我理解复杂世界</small></div>
-            <div><span>02</span><strong>选择</strong><small>产品让我理解真实需求</small></div>
-            <div><span>03</span><strong>成长</strong><small>孩子让我重新学习生活</small></div>
-          </div>
-        </div>
-      </section>
-
       <%
         const career = content.topics.find(function(topic) { return topic.id === "career"; });
         const parenting = content.topics.find(function(topic) { return topic.id === "parenting"; });
@@ -184,7 +159,9 @@
         const careerWorks = content.entries.filter(function(item) {
           return item.status !== "draft" && item.topicId === "career" && ["product", "series"].includes(item.kind) && item.id !== "career-promotion-album";
         }).sort(function(a, b) { return a.order - b.order; });
-        const childGame = entry("parenting-child-game");
+        const childGames = content.entries.filter(function(item) {
+          return item.status !== "draft" && item.topicId === "parenting" && item.kind === "game";
+        }).sort(function(a, b) { return a.order - b.order; });
         const annualReview = entry("life-annual-review");
         const videoChannel = content.channels.find(function(channel) { return channel.id === "video"; });
         const wechatChannel = content.channels.find(function(channel) { return channel.id === "wechat"; });
@@ -325,30 +302,38 @@
             </header>
 
             <div class="parenting-stage">
-              <% if (childGame) { %>
-                <article class="game-card reveal">
-                  <div class="game-window">
-                    <div class="game-window-bar"><i></i><i></i><i></i><span>PLAYGROUND.exe</span></div>
-                    <div class="game-scene" aria-hidden="true">
-                      <span class="pixel pixel-one"></span>
-                      <span class="pixel pixel-two"></span>
-                      <span class="pixel pixel-three"></span>
-                      <strong>?</strong>
-                      <small>想法 → 尝试 → 作品</small>
-                    </div>
-                  </div>
-                  <div class="game-copy">
-                    <p><%= childGame.eyebrow %></p>
-                    <h3><%= childGame.title %></h3>
-                    <p><%= childGame.summary %></p>
-                    <div class="work-tags"><% childGame.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
-                    <% if (childGame.href) { %>
-                      <a href="<%= childGame.href %>" target="_blank" rel="noreferrer"><%= childGame.actionLabel %> ↗</a>
-                    <% } else { %>
-                      <span class="muted-action"><%= childGame.actionLabel %></span>
-                    <% } %>
-                  </div>
-                </article>
+              <% if (childGames.length) { %>
+                <div class="game-list">
+                  <% childGames.forEach(function(childGame) { %>
+                    <article class="game-card reveal">
+                      <div class="game-window">
+                        <div class="game-window-bar"><i></i><i></i><i></i><span>PLAYGROUND.exe</span></div>
+                        <div class="game-scene" aria-hidden="true">
+                          <% if (childGame.cover) { %>
+                            <img class="game-logo" src="<%= childGame.cover %>" alt="" />
+                          <% } else { %>
+                            <span class="pixel pixel-one"></span>
+                            <span class="pixel pixel-two"></span>
+                            <span class="pixel pixel-three"></span>
+                            <strong>?</strong>
+                          <% } %>
+                          <small>想法 → 尝试 → 作品</small>
+                        </div>
+                      </div>
+                      <div class="game-copy">
+                        <p><%= childGame.eyebrow %></p>
+                        <h3><%= childGame.title %></h3>
+                        <p><%= childGame.summary %></p>
+                        <div class="work-tags"><% childGame.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
+                        <% if (childGame.href) { %>
+                          <a href="<%= childGame.href %>" target="_blank" rel="noreferrer"><%= childGame.actionLabel %> ↗</a>
+                        <% } else { %>
+                          <span class="muted-action"><%= childGame.actionLabel %></span>
+                        <% } %>
+                      </div>
+                    </article>
+                  <% }) %>
+                </div>
               <% } %>
 
               <aside class="parenting-notes reveal">

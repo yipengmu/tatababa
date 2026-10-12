@@ -10,11 +10,7 @@
       "AI产品经理",
       "俩儿子爸爸",
       "长期分享者"
-    ],
-    "aboutKicker": "ABOUT / THE PERSON BEHIND THE SCREEN",
-    "aboutTitle": "谈谈使用 AI 的人\n",
-    "aboutBody": "写代码让我理解系统，做产品让我理解选择，成为父亲以后，我开始重新理解成长 这三个身份不冲突，共同构成了我观察 AI 时代的方式",
-    "quote": "先把问题活明白，再把答案做出来"
+    ]
   },
   "topics": [
     {
@@ -99,14 +95,14 @@
       "eyebrow": "WECHAT TOPIC 02",
       "title": "产品经理",
       "summary": "思维模式、2B 互联网、贵人指路，以及 30 岁和 35 岁之后仍然有用的产品判断",
-      "href": "",
+      "href": "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODc0NzgwNg==&action=getalbum&album_id=2438910264239751168#wechat_redirect",
       "cover": "",
-      "actionLabel": "专题链接待接入",
+      "actionLabel": "查看完整专题",
       "tags": [
         "产品",
         "思维模式"
       ],
-      "status": "comingSoon",
+      "status": "published",
       "featured": true,
       "order": 30
     },
@@ -117,14 +113,14 @@
       "eyebrow": "ONGOING SERIES",
       "title": "程序员转型系列",
       "summary": "从只对代码负责，到对用户、业务和结果负责 整理那些真正改变职业路径的现场经验",
-      "href": "",
+      "href": "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODc0NzgwNg==&action=getalbum&album_id=2105137822998249480&scene=305#wechat_redirect",
       "cover": "",
-      "actionLabel": "内容整理中",
+      "actionLabel": "查看完整系列",
       "tags": [
         "程序员",
         "职业转型"
       ],
-      "status": "comingSoon",
+      "status": "published",
       "featured": false,
       "order": 40
     },
@@ -135,14 +131,14 @@
       "eyebrow": "OPEN SOFTWARE",
       "title": "家谱产品",
       "summary": "把散落在记忆里的家庭关系，做成可以被下一代继续补充和理解的数字家谱",
-      "href": "",
+      "href": "https://github.com/yipengmu/family_tree",
       "cover": "",
-      "actionLabel": "体验链接待补",
+      "actionLabel": "查看项目代码",
       "tags": [
         "家族记忆",
         "独立产品"
       ],
-      "status": "comingSoon",
+      "status": "published",
       "featured": true,
       "order": 50
     },
@@ -153,34 +149,70 @@
       "eyebrow": "OPEN SOFTWARE",
       "title": "口播 App",
       "summary": "为真实表达而做的轻量口播工具，让准备、录制和复盘少一点摩擦",
-      "href": "",
+      "href": "https://github.com/yipengmu/MyVoiceOverApp",
       "cover": "",
-      "actionLabel": "体验链接待补",
+      "actionLabel": "查看项目代码",
       "tags": [
         "创作者工具",
         "AI 应用"
       ],
-      "status": "comingSoon",
+      "status": "published",
       "featured": true,
       "order": 60
     },
     {
-      "id": "parenting-child-game",
+      "id": "parenting-eat-fish",
       "topicId": "parenting",
       "kind": "game",
       "eyebrow": "MADE BY KIDS",
-      "title": "小朋友做的游戏",
-      "summary": "不是一份成人代做的作业，而是从孩子的想法出发，和 AI 一起把玩法真正做出来",
-      "href": "",
-      "cover": "",
-      "actionLabel": "作品即将接入",
+      "title": "鱼吃鱼",
+      "summary": "从孩子的想法出发，和 AI 一起把一场海底追逐做成真正可以玩的作品",
+      "href": "https://eatfish.tatababa.top/",
+      "cover": "/assets/game-eat-fish-logo.png",
+      "actionLabel": "开始游戏",
       "tags": [
         "亲子共创",
         "游戏"
       ],
-      "status": "comingSoon",
+      "status": "published",
       "featured": true,
       "order": 10
+    },
+    {
+      "id": "parenting-dino-jump",
+      "topicId": "parenting",
+      "kind": "game",
+      "eyebrow": "MADE BY KIDS",
+      "title": "恐龙跳跳跳",
+      "summary": "把孩子喜欢的恐龙和跳跃挑战结合起来，做成一次轻松有趣的亲子共创",
+      "href": "https://dinojump.tatababa.top/",
+      "cover": "/assets/game-dino-jump-logo.png",
+      "actionLabel": "开始游戏",
+      "tags": [
+        "亲子共创",
+        "游戏"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 20
+    },
+    {
+      "id": "parenting-cat-dog",
+      "topicId": "parenting",
+      "kind": "game",
+      "eyebrow": "MADE BY KIDS",
+      "title": "猫狗大战",
+      "summary": "从熟悉的动物角色开始，把一个简单的游戏点子变成可以分享的作品",
+      "href": "https://catdog.tatababa.top/",
+      "cover": "/assets/game-cat-dog-logo.png",
+      "actionLabel": "开始游戏",
+      "tags": [
+        "亲子共创",
+        "游戏"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 30
     },
     {
       "id": "life-annual-review",

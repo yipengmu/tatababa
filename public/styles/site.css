@@ -1058,25 +1058,10 @@ h2 em {
 
 /* Long-form homepage */
 
-.about-section,
 .detail-shell {
   width: var(--page);
   margin-inline: auto;
 }
-
-.about-section {
-  display: grid;
-  grid-template-columns: 0.58fr 1.42fr;
-  gap: clamp(46px, 8vw, 120px);
-  padding: 140px 0;
-}
-
-.about-aside {
-  display: grid;
-  align-content: start;
-}
-
-.about-aside > p,
 .detail-header > div:last-child > p,
 .game-copy > p:first-child,
 .annual-copy > p:first-child,
@@ -1089,19 +1074,6 @@ h2 em {
   text-transform: uppercase;
 }
 
-.about-avatar {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 48px 0 28px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: #dda164;
-  box-shadow: 18px 18px 0 var(--orange);
-}
-
-.about-avatar img,
 .mini-avatar img {
   position: absolute;
   top: 50%;
@@ -1109,74 +1081,6 @@ h2 em {
   width: 430px;
   max-width: none;
   transform: translate(-50%, -50%);
-}
-
-.about-aside > span {
-  color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 10px;
-  line-height: 1.65;
-  letter-spacing: 0.09em;
-}
-
-.about-copy h2 {
-  max-width: 820px;
-  margin-bottom: 34px;
-  font-size: clamp(46px, 5.4vw, 80px);
-  line-height: 1.08;
-  letter-spacing: -0.06em;
-}
-
-.about-copy > p {
-  max-width: 780px;
-  color: #4f5049;
-  font-size: clamp(17px, 1.5vw, 21px);
-  line-height: 1.9;
-}
-
-.about-copy blockquote {
-  margin: 48px 0;
-  padding: 26px 0 26px 32px;
-  border-left: 4px solid var(--orange);
-  font-family: Georgia, "Songti SC", serif;
-  font-size: clamp(24px, 3vw, 40px);
-  line-height: 1.35;
-}
-
-.about-axis {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.about-axis > div {
-  display: grid;
-  gap: 8px;
-  min-height: 150px;
-  padding: 22px 18px;
-  border-right: 1px solid var(--line);
-}
-
-.about-axis > div:last-child {
-  border-right: 0;
-}
-
-.about-axis span {
-  color: var(--orange);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 10px;
-}
-
-.about-axis strong {
-  align-self: end;
-  font-size: 22px;
-}
-
-.about-axis small {
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.55;
 }
 
 .detail-section {
@@ -1680,6 +1584,23 @@ h2 em {
   font-weight: 500;
 }
 
+.game-card,
+.parenting-notes,
+.annual-card,
+.wechat-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.annual-copy a span {
+  color: var(--orange);
+  font-size: 22px;
+}
+
+.qr-trigger {
+  cursor: pointer;
+}
+
 .detail-parenting {
   color: #eff9f4;
   background: #123b30;
@@ -1703,6 +1624,12 @@ h2 em {
   gap: 16px;
 }
 
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .game-card,
 .parenting-notes {
   border-color: rgba(255, 255, 255, 0.18);
@@ -1711,6 +1638,23 @@ h2 em {
 
 .game-card {
   padding: 20px;
+}
+
+.game-list .game-card {
+  padding: 14px;
+}
+
+.game-list .game-copy {
+  padding: 18px 2px 2px;
+}
+
+.game-list .game-copy h3 {
+  margin: 8px 0;
+  font-size: clamp(24px, 2.2vw, 34px);
+}
+
+.game-list .game-copy > p:nth-of-type(2) {
+  line-height: 1.55;
 }
 
 .game-window {
@@ -1759,6 +1703,14 @@ h2 em {
   background-image: linear-gradient(rgba(120, 223, 187, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(120, 223, 187, 0.08) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+.game-logo {
+  display: block;
+  width: min(92%, 260px);
+  height: 205px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.22));
 }
 
 .game-scene strong {
@@ -2094,13 +2046,12 @@ h2 em {
 }
 
 @media (max-width: 960px) {
-  .about-section,
   .detail-header {
-    grid-template-columns: 0.42fr 1.58fr;
     gap: 44px;
   }
 
   .career-feature-grid,
+  .game-list,
   .parenting-stage,
   .life-grid {
     grid-template-columns: 1fr;
@@ -2118,56 +2069,14 @@ h2 em {
 }
 
 @media (max-width: 760px) {
-  .about-section,
   .detail-header,
   .subsection-heading {
     grid-template-columns: 1fr;
   }
 
-  .about-section,
   .detail-section {
     padding-top: 90px;
     padding-bottom: 90px;
-  }
-
-  .about-aside {
-    grid-template-columns: 1fr auto;
-    align-items: start;
-  }
-
-  .about-aside > p {
-    grid-column: 1 / -1;
-  }
-
-  .about-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 24px 0;
-    box-shadow: 10px 10px 0 var(--orange);
-  }
-
-  .about-aside > span {
-    align-self: end;
-    margin-bottom: 24px;
-    text-align: right;
-  }
-
-  .about-copy h2 {
-    font-size: 45px;
-  }
-
-  .about-axis {
-    grid-template-columns: 1fr;
-  }
-
-  .about-axis > div {
-    min-height: 120px;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .about-axis > div:last-child {
-    border-bottom: 0;
   }
 
   .detail-header {

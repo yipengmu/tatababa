@@ -16,11 +16,7 @@ const profileSchema = z.object({
   headline: z.string().trim().min(1).max(100),
   headlineAccent: z.string().trim().min(1).max(100),
   intro: z.string().trim().min(1).max(600),
-  identityTags: z.array(z.string().trim().min(1).max(30)).max(8),
-  aboutKicker: z.string().trim().min(1).max(120),
-  aboutTitle: z.string().trim().min(1).max(180),
-  aboutBody: z.string().trim().min(1).max(1200),
-  quote: z.string().trim().min(1).max(180)
+  identityTags: z.array(z.string().trim().min(1).max(30)).max(8)
 });
 
 const topicSchema = z.object({

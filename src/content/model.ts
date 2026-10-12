@@ -9,10 +9,6 @@ export interface ProfileContent {
   headlineAccent: string;
   intro: string;
   identityTags: string[];
-  aboutKicker: string;
-  aboutTitle: string;
-  aboutBody: string;
-  quote: string;
 }
 
 export interface TopicContent {

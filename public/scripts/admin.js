@@ -94,11 +94,7 @@
       ["主标题第一行", "headline"],
       ["主标题强调行", "headlineAccent"],
       ["首屏个人介绍", "intro", "textarea", true],
-      ["身份标签（逗号分隔）", "identityTags", "tags", true],
-      ["关于我眉题", "aboutKicker"],
-      ["关于我标题（换行保留）", "aboutTitle", "textarea", true],
-      ["关于我正文", "aboutBody", "textarea", true],
-      ["个人短句", "quote", "textarea", true]
+      ["身份标签（逗号分隔）", "identityTags", "tags", true]
     ];
 
     definitions.forEach(([label, key, fieldType = "text", wide = false]) => {
@@ -109,7 +105,7 @@
           value: isTags ? profile[key].join("，") : profile[key],
           type: fieldType === "textarea" ? "textarea" : "text",
           wide,
-          rows: key === "aboutBody" ? 6 : 3,
+          rows: 3,
           onChange: (value) => {
             profile[key] = isTags
               ? value.split(/[，,]/).map((item) => item.trim()).filter(Boolean)
