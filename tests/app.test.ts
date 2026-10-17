@@ -46,7 +46,7 @@ test("职场区块保留卡片并替换为晋升系列内容", async () => {
   const response = await fetch(`${baseUrl}/`);
   const html = await response.text();
   assert.equal(response.status, 200);
-  assert.match(html, /class="work-card reveal [^"]*"[\s\S]*?大厂晋升系列[\s\S]*?大厂[\s\S]*?晋升[\s\S]*?方法论[\s\S]*?查看完整系列/);
+  assert.match(html, /class="work-card[^\"]*"[\s\S]*?大厂晋升系列[\s\S]*?系统复盘晋升背后的判断、影响力与长期能力[\s\S]*?查看完整系列/);
   assert.doesNotMatch(html, /程序员转型系列/);
 });
 
@@ -55,7 +55,17 @@ test("技术到产品的两个卡片统一移动到写下来做出来区块", as
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.doesNotMatch(html, /class="wechat-topic-grid"/);
-  assert.match(html, /class="works-grid"[\s\S]*?技术转 PD[\s\S]*?产品经理/);
+  assert.match(html, /class="works-layout"[\s\S]*?技术转 PD[\s\S]*?产品经理/);
+});
+
+test("写下来做出来采用左侧产品缩略图加右侧三项列表布局", async () => {
+  const response = await fetch(`${baseUrl}/`);
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /class="works-featured"[\s\S]*?family-tree-thumb\.svg[\s\S]*?voiceover-thumb\.svg/);
+  assert.match(html, /class="works-secondary-panel"[\s\S]*?技术转 PD[\s\S]*?产品经理[\s\S]*?大厂晋升系列/);
+  assert.doesNotMatch(html, /MORE WORK \/ 03|WECHAT TOPIC 01|WECHAT TOPIC 02/);
+  assert.doesNotMatch(html, /写下来，做出来/);
 });
 
 test("后台接口拒绝未登录访问", async () => {

@@ -157,6 +157,12 @@
         const careerWorks = content.entries.filter(function(item) {
           return item.status !== "draft" && item.topicId === "career" && ["topic", "product", "series"].includes(item.kind) && item.id !== "career-promotion-album";
         }).sort(function(a, b) { return a.order - b.order; });
+        const featuredWorks = careerWorks.filter(function(item) {
+          return ["career-family-tree", "career-teleprompter"].includes(item.id);
+        });
+        const supportingWorks = careerWorks.filter(function(item) {
+          return !["career-family-tree", "career-teleprompter"].includes(item.id);
+        });
         const childGames = content.entries.filter(function(item) {
           return item.status !== "draft" && item.topicId === "parenting" && item.kind === "game";
         }).sort(function(a, b) { return a.order - b.order; });
@@ -186,31 +192,52 @@
               </div>
             </header>
 
-            <div class="subsection-heading works-heading reveal">
-              <div><span>LAB</span><p>把生活里的问题<br />做成可以使用的产品</p></div>
-              <h3>写下来，做出来</h3>
-            </div>
+            <div class="works-layout-scroll">
+              <div class="works-layout">
+                <div class="works-featured">
+                <% featuredWorks.forEach(function(item, index) { %>
+                  <article class="work-card work-card-featured reveal <%= item.href ? "" : "is-coming" %>">
+                    <div class="work-card-visual visual-<%= (index % 3) + 1 %>">
+                      <% if (item.cover) { %>
+                        <img class="product-thumb" src="<%= item.cover %>" alt="<%= item.title %> 产品缩略图" />
+                      <% } else { %>
+                        <span>0<%= index + 1 %></span>
+                        <i></i><i></i><i></i>
+                      <% } %>
+                    </div>
+                    <div class="work-card-body">
+                      <p><%= item.eyebrow %></p>
+                      <h4><%= item.title %></h4>
+                      <p><%= item.summary %></p>
+                      <div class="work-tags"><% item.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
+                      <% if (item.href) { %>
+                        <a href="<%= item.href %>" target="_blank" rel="noreferrer"><%= item.actionLabel %> <span>↗</span></a>
+                      <% } else { %>
+                        <span class="muted-action"><%= item.actionLabel %></span>
+                      <% } %>
+                    </div>
+                  </article>
+                <% }) %>
+                </div>
 
-            <div class="works-grid">
-              <% careerWorks.forEach(function(item, index) { %>
-                <article class="work-card reveal <%= item.href ? "" : "is-coming" %>">
-                  <div class="work-card-visual visual-<%= (index % 3) + 1 %>" aria-hidden="true">
-                    <span>0<%= index + 1 %></span>
-                    <i></i><i></i><i></i>
+                <aside class="works-secondary-panel" aria-label="其他职场作品">
+                  <div class="works-secondary">
+                  <% supportingWorks.forEach(function(item, index) { %>
+                    <article class="work-card work-card-compact reveal <%= item.href ? "" : "is-coming" %>">
+                      <div class="work-card-body">
+                        <h4><%= item.title %></h4>
+                        <p><%= item.summary %></p>
+                        <% if (item.href) { %>
+                          <a href="<%= item.href %>" target="_blank" rel="noreferrer"><%= item.actionLabel %> <span>↗</span></a>
+                        <% } else { %>
+                          <span class="muted-action"><%= item.actionLabel %></span>
+                        <% } %>
+                      </div>
+                    </article>
+                  <% }) %>
                   </div>
-                  <div class="work-card-body">
-                    <p><%= item.eyebrow %></p>
-                    <h4><%= item.title %></h4>
-                    <p><%= item.summary %></p>
-                    <div class="work-tags"><% item.tags.forEach(function(tag) { %><span><%= tag %></span><% }) %></div>
-                    <% if (item.href) { %>
-                      <a href="<%= item.href %>" target="_blank" rel="noreferrer"><%= item.actionLabel %> <span>↗</span></a>
-                    <% } else { %>
-                      <span class="muted-action"><%= item.actionLabel %></span>
-                    <% } %>
-                  </div>
-                </article>
-              <% }) %>
+                </aside>
+              </div>
             </div>
           </div>
         </section>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">口播 App 缩略图</title>
+  <desc id="desc">以口播录制为主题的轻量创作者工具界面</desc>
+  <rect width="800" height="460" rx="28" fill="#252244"/>
+  <circle cx="640" cy="92" r="180" fill="#6c63ff" opacity=".28"/>
+  <rect x="82" y="72" width="636" height="260" rx="22" fill="#17162c" stroke="#b4adff" stroke-width="3"/>
+  <g fill="#b4adff" opacity=".9">
+    <rect x="122" y="120" width="220" height="14" rx="7"/>
+    <rect x="122" y="160" width="420" height="11" rx="5" opacity=".55"/>
+    <rect x="122" y="188" width="340" height="11" rx="5" opacity=".35"/>
+  </g>
+  <circle cx="400" cy="268" r="34" fill="#ff936d"/>
+  <path d="M392 250v36l26-18z" fill="#17162c"/>
+  <g fill="#f4f1e9" font-family="sans-serif" text-anchor="middle">
+    <text x="400" y="386" font-size="22" font-weight="700">MY VOICE OVER</text>
+    <text x="400" y="414" font-size="14" opacity=".62">让表达少一点摩擦</text>
+  </g>
+</svg>

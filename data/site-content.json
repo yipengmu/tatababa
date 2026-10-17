@@ -133,7 +133,7 @@
       "title": "家谱产品",
       "summary": "把散落在记忆里的家庭关系，做成可以被下一代继续补充和理解的数字家谱",
       "href": "https://github.com/yipengmu/family_tree",
-      "cover": "",
+      "cover": "/assets/family-tree-thumb.svg",
       "actionLabel": "查看项目代码",
       "tags": [
         "家族记忆",
@@ -151,7 +151,7 @@
       "title": "口播 App",
       "summary": "为真实表达而做的轻量口播工具，让准备、录制和复盘少一点摩擦",
       "href": "https://github.com/yipengmu/MyVoiceOverApp",
-      "cover": "",
+      "cover": "/assets/voiceover-thumb.svg",
       "actionLabel": "查看项目代码",
       "tags": [
         "创作者工具",
