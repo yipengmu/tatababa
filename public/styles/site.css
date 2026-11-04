@@ -1082,6 +1082,7 @@ h2 em {
 
 .detail-career {
   border-top: 1px solid var(--line);
+  padding: 76px 0 96px;
   background: #eee9dd;
 }
 
@@ -1093,7 +1094,7 @@ h2 em {
 }
 
 .detail-career .detail-header {
-  margin-bottom: 56px;
+  margin-bottom: 32px;
 }
 
 .detail-index {
