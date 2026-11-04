@@ -132,9 +132,9 @@
       "eyebrow": "OPEN SOFTWARE",
       "title": "家谱产品",
       "summary": "把散落在记忆里的家庭关系，做成可以被下一代继续补充和理解的数字家谱",
-      "href": "https://github.com/yipengmu/family_tree",
+      "href": "https://tree.tatababa.top/",
       "cover": "/assets/family-tree-thumb.svg",
-      "actionLabel": "查看项目代码",
+      "actionLabel": "体验家谱",
       "tags": [
         "家族记忆",
         "独立产品"
@@ -232,6 +232,24 @@
       "status": "published",
       "featured": true,
       "order": 10
+    },
+    {
+      "id": "life-dao-de-jing",
+      "topicId": "life",
+      "kind": "product",
+      "eyebrow": "A CLASSIC, REIMAGINED",
+      "title": "道德经",
+      "summary": "以产品化的方式阅读和体验《道德经》，在日常生活中重新理解古老智慧",
+      "href": "https://dao.tatababa.top/",
+      "cover": "",
+      "actionLabel": "体验道德经",
+      "tags": [
+        "产品",
+        "生活智慧"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 20
     }
   ],
   "channels": [

@@ -167,6 +167,7 @@
           return item.status !== "draft" && item.topicId === "parenting" && item.kind === "game";
         }).sort(function(a, b) { return a.order - b.order; });
         const annualReview = entry("life-annual-review");
+        const daoProduct = entry("life-dao-de-jing");
         const wechatChannel = content.channels.find(function(channel) { return channel.id === "wechat"; });
       %>
 
@@ -336,6 +337,16 @@
             </header>
 
             <div class="life-grid">
+              <% if (daoProduct) { %>
+                <article class="annual-card reveal">
+                  <div class="annual-copy">
+                    <p><%= daoProduct.eyebrow %></p>
+                    <h3><%= daoProduct.title %></h3>
+                    <p><%= daoProduct.summary %></p>
+                    <a href="<%= daoProduct.href %>" target="_blank" rel="noreferrer"><%= daoProduct.actionLabel %> <span>↗</span></a>
+                  </div>
+                </article>
+              <% } %>
               <% if (annualReview) { %>
                 <article class="annual-card reveal">
                   <div class="annual-years" aria-hidden="true">
